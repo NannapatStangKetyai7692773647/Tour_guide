@@ -22,7 +22,10 @@ exports.create = (req, res) => {
     to_date: req.body.to_date,
     people: req.body.people,
     doc: req.body.doc,
+    price: req.body.price,
   });
+  console.log(book);
+
 
   Tour.create(book, (err, data) => {
     if (err)

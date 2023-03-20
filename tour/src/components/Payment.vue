@@ -128,8 +128,10 @@ export default {
   
 <style scoped>
 h6,
+h5,
 h4,
 p,
+li,
 input[type="file"] {
   color: black;
   font-weight: 500;
@@ -146,5 +148,9 @@ ul li{ list-style: none; font-size:18px; }
 ul{
   padding-left:0px;
   margin-left:0px;
+}
+
+.delete-from {
+  display: none;
 }
 </style>

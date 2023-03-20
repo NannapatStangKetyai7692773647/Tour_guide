@@ -28,6 +28,7 @@ export default {
         to_date: this.e_day,
         people: 1,
         doc: "",
+        price: this.$route.params.price,
       },
       
       
@@ -68,6 +69,7 @@ export default {
         to_date: this.e_day,
         people: this.tourList.people,
         doc: this.tourList.doc,
+        price: this.tourList.price
       };
       BookDataService.create(data)
         .then((res) => { 
@@ -106,6 +108,7 @@ export default {
   },
   mounted() {
     this.getData();
+    console.log(this.tourList.price);
   },
 };
 </script>
@@ -192,6 +195,12 @@ export default {
                       name="name"
                       id="name"
                       v-model="tourList.phone"
+                    />
+                    <input
+                      type="hidden"
+                      name="nameUser"
+                      id="nameUser"
+                      v-model="tourList.price"
                     />
                   </div>
                   <div class="col-sm"></div>

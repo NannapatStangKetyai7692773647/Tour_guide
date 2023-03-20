@@ -4,6 +4,7 @@ import NavLogin from "./NavLogin.vue";
 
 <script>
 import UserDataService from "../services/UserDataService";
+import router from "../router";
 export default {
   name: "add-user",
   data() {
@@ -29,10 +30,25 @@ export default {
         pwd: this.user.pwd,
         role: this.user.role,
       };
+
+      if (data.fname == "" || data.lname == "" || data.phone == "" || data.email == "" || data.pwd == "" || data.role == "") {
+        return false
+      }
+
       UserDataService.create(data)
         .then((response) => {
           this.user.email = response.data.email;
           this.submitted = true;
+          this.$swal({
+            position: 'center',
+            icon: 'success',
+            title: 'คุณลงทะเบียนสำเร็จ',
+            showConfirmButton: false,
+            timer: 1500
+          })
+          setTimeout(() => {
+            router.push('/')
+          }, 1600);
         })
         .catch((e) => {
           console.log(e);
@@ -51,42 +67,21 @@ export default {
   <div class="auth-wrapper">
     <NavLogin />
     <div class="auth-inner">
-      <form>
+      <form @submit.prevent="saveUser">
         <div v-if="!submitted">
           <h3>ลงทะเบียน</h3>
           <div class="form-group">
             <label for="ชื่อ"> ชื่อ </label>
-            <input
-              type="text"
-              name="fname"
-              placeholder="ชื่อ"
-              id="fname"
-              required
-              v-model="user.fname"
-            />
+            <input type="text" name="fname" placeholder="ชื่อ" id="fname" required v-model="user.fname" />
           </div>
           <div class="form-group">
             <label for="นามสกุล"> นามสกุล </label>
-            <input
-              type="text"
-              name="lname"
-              placeholder="นามสกุล"
-              id="lname"
-              required
-              v-model="user.lname"
-            />
+            <input type="text" name="lname" placeholder="นามสกุล" id="lname" required v-model="user.lname" />
           </div>
           <div class="form-group">
             <label for="เบอร์"> เบอร์โทรศัพท์ </label>
-            <input
-              type="text"
-              onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-              name="phone"
-              placeholder="เบอร์โทรศัพท์"
-              id="phone"
-              required
-              v-model="user.phone"
-            />
+            <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="phone"
+              placeholder="เบอร์โทรศัพท์" id="phone" required v-model="user.phone" />
           </div>
           <div class="form-group">
             <label for="Email">
@@ -94,14 +89,7 @@ export default {
               Email
             </label>
 
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              id="email"
-              required
-              v-model="user.email"
-            />
+            <input type="email" name="email" placeholder="Email" id="email" required v-model="user.email" />
           </div>
           <div class="form-group">
             <label for="password">
@@ -109,24 +97,11 @@ export default {
               Password
             </label>
 
-            <input
-              type="password"
-              name="pwd"
-              placeholder="Password"
-              id="pwd"
-              required
-              v-model="user.pwd"
-            />
+            <input type="password" name="pwd" placeholder="Password" id="pwd" required v-model="user.pwd" />
           </div>
           <div class="form-group">
-            <button
-              @click="saveUser"
-              class="btn btn-primary btn-block"
-            >ลงทะเบียน</button>
+            <button type="submit" class="btn btn-primary btn-block">ลงทะเบียน</button>
           </div>
-        </div>
-        <div v-else>
-          <h4>You submitted successfully!</h4>
         </div>
       </form>
     </div>

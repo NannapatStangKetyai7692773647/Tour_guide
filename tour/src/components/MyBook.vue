@@ -44,7 +44,7 @@ export default {
 };
 </script>
 <template>
-  <div :style="{ 'background-image': 'url(/src/assets/img/10909472.jpg)' }">
+  <div :style="{ 'background-image':'url(/src/assets/img/10909472.jpg)','height':'100%', 'width':'100%' }">
     <NavbarUser />
     <div>
       <div class="content">
@@ -78,6 +78,8 @@ export default {
                       <h6 class="card-title">{{ tour.period }}</h6>
                       <h6 class="card-title numbh my-0">จำนวนคน</h6>
                       <h6 class="card-title numbh">{{ tour.people }}</h6>
+                      <h6 class="card-title bg-price my-0">ราคา</h6>
+                      <h6 class="card-title bg-price">{{ tour.price }}</h6>
                       <h6 class="card-title">จองวันที่</h6>
                       <h6 class="card-title">
                         {{ tour.day.toString().substr(0, 10) }}
@@ -170,5 +172,10 @@ p {
   background:#e2e2e2;
   padding:10px;
   border-radius:7px;
+}
+
+.bg-price{
+  background-color: rgba(127, 255, 123, 0.3);
+  padding: 7px;
 }
 </style>

@@ -26,7 +26,7 @@ const routes = [
   { path: "/editTour/:id", name: "EditTour", component: EditTour },
   { path: "/doc/:id/:user", name: "Doc", component: Doc },
   { path: "/docAdmin/:id", name: "DocAdmin", component: DocAdmin },
-  { path: "/booking/:id/:user", name: "Booking", component: Booking },
+  { path: "/booking/:id/:user/:price", name: "Booking", component: Booking },
   { path: "/allBook", name: "AllBook", component: AllBook },
   { path: "/check/:id", name: "Check", component: Check },
   { path: "/myBook/:user", name: "MyBook", component: MyBook  },

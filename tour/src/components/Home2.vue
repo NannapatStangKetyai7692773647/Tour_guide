@@ -143,6 +143,7 @@ export default {
                                   params: {
                                     id: tour.id,
                                     user: this.$route.params.user,
+                                    price: tour.price,
                                   },
                                 }"
                                 class="btn btn-success w-100"

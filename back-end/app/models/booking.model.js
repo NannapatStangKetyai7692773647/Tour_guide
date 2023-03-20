@@ -16,6 +16,7 @@ const Book = function(book) {
   this.to_date = book.to_date;
   this.people = book.people;
   this.doc = book.doc;
+  this.price = book.price * book.people;
 };
 
 Book.create = (newLocation, result) => {

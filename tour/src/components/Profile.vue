@@ -29,17 +29,32 @@ export default {
         pwd: this.user.pwd,
         old_pwd: this.old_pwd,
       };
-      UserDataService.update(this.$route.params.user, data)
-        .then((response) => {
-          this.$router.push({
-            name: "Home2",
-            params: { user: this.$route.params.user },
-          });
-          this.submitted = true;
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+
+      this.$swal({
+        title: 'คุณยังต้องการที่จะเปลี่ยนแปลงข้อมูลหรือไม่',
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: 'บันทึก',
+        denyButtonText: `ไม่บันทึก`,
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          this.$swal('บันทึกเรียบร้อย', '', 'success')
+          UserDataService.update(this.$route.params.user, data)
+            .then((response) => {
+              this.$router.push({
+                name: "Home2",
+                params: { user: this.$route.params.user },
+              });
+              this.submitted = true;
+            })
+            .catch((e) => {
+              console.log(e);
+            });
+        } else if (result.isDenied) {
+          this.$swal('ไม่บันทึก', '', 'info')
+        }
+      })
     },
 
     newUser() {
@@ -65,7 +80,7 @@ export default {
 </script>
 
 <template>
-  <div class="auth-wrapper" :style="{'background-image':'url(/src/assets/img/10909472.jpg)','height':'100vh'}">
+  <div class="auth-wrapper" :style="{ 'background-image': 'url(/src/assets/img/10909472.jpg)', 'height': '100vh' }">
     <NavbarUser />
     <div class="auth-inner">
       <form @submit.prevent="saveUser">
@@ -73,37 +88,16 @@ export default {
           <h3>ข้อมูลส่วนตัว</h3>
           <div class="form-group">
             <label for="ชื่อ"> ชื่อ </label>
-            <input
-              type="text"
-              name="fname"
-              placeholder="ชื่อ"
-              id="fname"
-              required
-              v-model="user.fname"
-            />
+            <input type="text" name="fname" placeholder="ชื่อ" id="fname" required v-model="user.fname" />
           </div>
           <div class="form-group">
             <label for="นามสกุล"> นามสกุล </label>
-            <input
-              type="text"
-              name="lname"
-              placeholder="นามสกุล"
-              id="lname"
-              required
-              v-model="user.lname"
-            />
+            <input type="text" name="lname" placeholder="นามสกุล" id="lname" required v-model="user.lname" />
           </div>
           <div class="form-group">
             <label for="เบอร์"> เบอร์โทรศัพท์ </label>
-            <input
-              type="text"
-              onkeypress="return event.charCode >= 48 && event.charCode <= 57"
-              name="phone"
-              placeholder="เบอร์โทรศัพท์"
-              id="phone"
-              required
-              v-model="user.phone"
-            />
+            <input type="text" onkeypress="return event.charCode >= 48 && event.charCode <= 57" name="phone"
+              placeholder="เบอร์โทรศัพท์" id="phone" required v-model="user.phone" />
           </div>
           <div class="form-group">
             <label for="password">
@@ -111,14 +105,7 @@ export default {
               Password เก่า
             </label>
 
-            <input
-              type="password"
-              name="pwd"
-              placeholder="Password"
-              id="pwd"
-              required
-              v-model="old_pwd"
-            />
+            <input type="password" name="pwd" placeholder="Password" id="pwd" required v-model="old_pwd" />
           </div>
           <div class="form-group">
             <label for="password">
@@ -126,14 +113,7 @@ export default {
               Password ใหม่
             </label>
 
-            <input
-              type="password"
-              name="pwd"
-              placeholder="Password"
-              id="pwd"
-              required
-              v-model="user.pwd"
-            />
+            <input type="password" name="pwd" placeholder="Password" id="pwd" required v-model="user.pwd" />
           </div>
           <div class="form-group">
             <button class="btn btn-primary btn-block">

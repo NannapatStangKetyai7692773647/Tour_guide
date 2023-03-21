@@ -24,6 +24,13 @@ export default {
       };
       UserDataService.login(data)
         .then((response) => {
+          this.$swal({
+            position: 'center',
+            icon: 'success',
+            title: 'เข้าสู่ระบบแล้ว',
+            showConfirmButton: false,
+            timer: 1500
+          })
           this.user.role = response.data.role;
           this.loggedin = true;
           this.Home(this.user.role);
@@ -55,14 +62,7 @@ export default {
             Email
           </label>
 
-          <input
-            type="email"
-            name="email"
-            placeholder="Email"
-            id="email"
-            required
-            v-model="user.email"
-          />
+          <input type="email" name="email" placeholder="Email" id="email" required v-model="user.email" />
         </div>
         <div class="form-group">
           <label for="password">
@@ -70,14 +70,7 @@ export default {
             Password
           </label>
 
-          <input
-            type="password"
-            name="pwd"
-            placeholder="Password"
-            id="pwd"
-            required
-            v-model="user.pwd"
-          />
+          <input type="password" name="pwd" placeholder="Password" id="pwd" required v-model="user.pwd" />
         </div>
         <div class="form-group">
           <button class="btn btn-primary btn-block">เข้าสู่ระบบ</button>

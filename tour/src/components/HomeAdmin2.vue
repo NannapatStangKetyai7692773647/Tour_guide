@@ -21,6 +21,14 @@ export default {
         .then((res) => {
           if (Array.isArray(res.data)) {
             this.tourList = res.data;
+            this.tourList.forEach(async (itm,i) => {
+              if(itm.img!==null&&itm.img!==undefined&&itm.img!==''){
+                  await SingleFileUpload.getFile(itm.img,'cover')
+                  .then((r)=>{
+                    this.tourList[i].img = 'data:image/png;base64,'+r.data
+                  })
+              }
+          });
           } else this.tourList = [res.data];
           console.log(this.tourList);
         })

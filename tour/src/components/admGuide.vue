@@ -221,7 +221,7 @@ export default {
     <div>
       <div class="content">
         <div class="container relative" style="min-height: 680px;">
-            <h1>Guide</h1> {{ previewImg }}
+            <h1 class="color-font">Guide</h1> {{ previewImg }}
             <div class="absolute">
                 <button class="btn btn-outline-success" @click="newGuide()"> <i class="fa fa-plus"></i> เพิ่มไกด์</button>
             </div>
@@ -238,19 +238,19 @@ export default {
                         <div class="p-3"> 
                             <div class="mb-3">
                                 <label for="">ชื่อ - นามสกุล</label>
-                                <div class="fill">{{item.fname}} &nbsp; {{item.sname}}</div>
+                                <div class="fill color-font">{{item.fname}} &nbsp; {{item.sname}}</div>
                             </div>
                             <div class="mb-2">
                                 <label for="">เลขใบอนุญาตไกด์</label>
-                                <div class="gno">{{ item.license }}</div>
+                                <div class="gno color-font">{{ item.license }}</div>
                             </div>
                             <div class="mb-2" >
                                 <label for="">เบอร์โทร</label>
-                                <div class="gno" >{{item.mobile}}</div>
+                                <div class="gno color-font" >{{item.mobile}}</div>
                             </div>
                             <div style="line-height:20px;">
                                 <label for="">อีเมล</label>
-                                <div class="">{{ item.email }}</div>
+                                <div class="color-font">{{ item.email }}</div>
                             </div>
                         </div>  
                        </div>
@@ -287,6 +287,10 @@ label{
 }
 .fill{
   font-size:20px;
+}
+
+.color-font {
+  color: rgba(0, 0, 0, 0.6);
 }
 .gno{
   font-size:25px;

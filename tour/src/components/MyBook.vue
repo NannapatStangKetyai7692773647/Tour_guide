@@ -169,7 +169,8 @@ p {
   background:#fcf0d3;
 }
 .btn-99{
-  background:#e2e2e2;
+  background:#9A9A9A;
+  color: #fff;
   padding:10px;
   border-radius:7px;
 }

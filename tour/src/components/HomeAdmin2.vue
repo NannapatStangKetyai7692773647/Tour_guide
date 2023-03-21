@@ -129,6 +129,7 @@ export default {
               >
                 <i class="fas fa-plus-circle"></i> เพิ่มโปรแกรมทัวร์
               </router-link>
+              
             </form>
             <div
               v-for="tour in tourList"
@@ -150,7 +151,7 @@ export default {
                       <h4 class="card-title">{{ tour.day }}</h4>
                       <p class="quantity">ราคาเริ่มต้น(บาท)</p>
                       <h6 class="card-title">{{ formatPrice(tour.price) }}</h6>
-                      <p class="quantity">สถานที่</p>
+                      <p class="quantity">รายละเอียด</p>
                       <h6 class="card-title">{{ tour.sub_name }}</h6>
                       
                       

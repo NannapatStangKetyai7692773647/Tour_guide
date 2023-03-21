@@ -70,26 +70,24 @@ export default {
                       />
                     </div> -->
                     <div class="card-body">
-                      <h6 class="card-title">ชื่อทัวร์</h6>
+                      <h6 class="card-title hlight my-0">ชื่อทัวร์ :</h6>
                       <h6 class="card-title hlight">{{ tour.name_tour }}</h6>
-                      <h6 class="card-title">ชื่อสถานที่</h6>
-                      <h6 class="card-title">{{ tour.sub_name_tour }}</h6>
-                      <h6 class="card-title">ระยะเวลา</h6>
-                      <h6 class="card-title">{{ tour.period }}</h6>
-                      <h6 class="card-title numbh my-0">จำนวนคน</h6>
-                      <h6 class="card-title numbh">{{ tour.people }}</h6>
-                      <h6 class="card-title bg-price my-0">ราคา</h6>
-                      <h6 class="card-title bg-price">{{ tour.price }}</h6>
-                      <h6 class="card-title">จองวันที่</h6>
-                      <h6 class="card-title">
-                        {{ tour.day.toString().substr(0, 10) }}
-                      </h6>
-                      <h6 class="card-title">ชื่อคนจอง</h6>
-                      <h6 class="card-title">{{ tour.name_user }}</h6>
-                      <h6 class="card-title">เบอร์โทรศัพท์</h6>
-                      <h6 class="card-title">{{ tour.phone }}</h6>
-                      <h6 class="card-title">Email</h6>
-                      <h6 class="card-title">{{ tour.user }}</h6>
+                      <h6 class="card-title place my-0">ชื่อสถานที่ : </h6>
+                      <h6 class="card-title place ">{{ tour.sub_name_tour }}</h6>
+                      <h6 class="card-title ple ">ระยะเวลา : {{ tour.period }}</h6>
+                      <h6 class="card-title"></h6>
+                      <h6 class="card-title numbh my-0">จำนวนคน : </h6>
+                      <h6 class="card-title numbh">{{ tour.people }} ท่าน</h6>
+                      <h6 class="card-title bg-price my-0">ราคารวม : </h6>
+                      <h6 class="card-title bg-price">{{ tour.price }} บาท</h6>
+                      <h6 class="card-title Date">จองวันที่ :    {{ tour.day.toString().substr(0, 10) }}</h6>
+                    
+                      <h6 class="card-title name">ชื่อผู้จอง : {{ tour.name_user }}</h6>
+
+                      <h6 class="card-title Tel">เบอร์ติดต่อ : {{ tour.phone }}</h6>
+                      
+                      <h6 class="card-title mail">Email : {{ tour.user }}</h6>
+                      
                       <div v-if="tour.status === 1">
                         <div class="btn-99 my-3">
                             รอตรวจสอบที่ว่าง
@@ -159,14 +157,47 @@ p {
   font-weight: 500;
   font-family: "prompt", sans-serif;
 }
+a {
+  color: rgb(227, 23, 23);
+  font-weight: 800;
+  font-family: "prompt", sans-serif;
+}
 .hlight{
   background:#e5eeeb;
-  padding:7px;
+  padding:10px;
   border-radius:6px;
 }
 .numbh{
   padding:7px;
   background:#fcf0d3;
+}
+.place{
+  padding:7px;
+  background:#e3f0fb;
+}
+.Date{
+  padding:7px;
+  background:#ffffff;
+}
+.name{
+  padding:7px;
+  background:#ffffff;
+}
+.Tel{
+  padding:7px;
+  background:#ffffff;
+}
+
+.mail{
+  padding:7px;
+  background:rgb(255, 255, 255);
+}
+
+
+
+.ple{
+  padding:7px;
+  background:#fee8fd;
 }
 .btn-99{
   background:#e2e2e2;

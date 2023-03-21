@@ -53,15 +53,14 @@ module.exports = app => {
   router.get('/get/img/:folder/:filename', function (req,res){  
     const  path = __dirname+`/../../uploads/${req.params.folder}/${req.params.filename}` 
       fs.readFile(path , function (err,data){ 
+        
         res.contentType("image/png");
         if(data!==undefined&&data!==null){
           res.send(data.toString('base64'));
-        }else{ 
-          res.send({ message:'not found' })
-        } 
+        }else{
+          res.send({ message:'not found'})
+        }
     }); 
   }); 
-
-
     app.use('/api/upload', router);
   };

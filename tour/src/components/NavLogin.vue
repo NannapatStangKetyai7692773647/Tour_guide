@@ -15,7 +15,7 @@
             padding: 5px;
           "
         />
-        <h1>บริษัทไคด์ โซ กรุ๊ป ทราเวล จำกัด</h1>
+        <h1>KIND SO GROUP TRAVEL CO.,LID</h1>
         <router-link to="/"><i class="fas fa-sign-in-alt"></i>เข้าสู่ระบบ</router-link>
         <router-link to="/signUp"><i class="fas fa-registered"></i>ลงทะเบียน</router-link>
       </div>

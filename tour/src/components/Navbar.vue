@@ -23,7 +23,7 @@ export default {
             padding: 5px;
           "
         />
-        <h1>บริษัทไคด์ โซ กรุ๊ป ทราเวล จำกัด(Admin)</h1>
+        <h1>KIND SO GROUP TRAVEL CO.,LID(Admin)</h1>
         <router-link to="/homeAdmin2">หน้าหลัก</router-link>
         <router-link to="/allBook">การจอง</router-link>
         <router-link to="/admguide">ไกด์</router-link>

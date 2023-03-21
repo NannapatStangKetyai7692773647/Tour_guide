@@ -4,18 +4,12 @@ export default {
   data() {
     return {
       images: [
-        "/src/assets/img/แพ็คเกจที่เที่ยวธรรมชาติ ป่ากลางกรุง.jpg",
-        "/src/assets/img/bangkok05.jpg",
-        "/src/assets/img/bangkok01.jpg",
-        "/src/assets/img/bangkok03.jpg",
+      "/src/assets/img/bangkok03.jpg",
         "/src/assets/img/Ratcha03.jpg",
         "/src/assets/img/Ratcha04.jpg",
-        "/src/assets/img/พัทยา01.jpg",
-        "/src/assets/img/พัทยา03.jpg",
-        "/src/assets/img/กาญ01.jpg",
-        "/src/assets/img/กาญ02.jpg",
-        "/src/assets/img/กาญ03.jpg",
-        "/src/assets/img/สงคราม1.jpg", 
+        "/src/assets/img/Karn04.jpg",
+        "/src/assets/img/BgPattaya.jpg",
+
       ],
       timer: null,
       currentIndex: 0,

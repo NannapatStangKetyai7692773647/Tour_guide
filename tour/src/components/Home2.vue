@@ -180,7 +180,8 @@ p {
   border:#EC0000 1px solid;
 }
 .btn-booked{
-  background:#f1edd1;
+  background:#FFCD00;
+  color: #000;
   padding:6px 10px;
   border-radius:5px;
 }

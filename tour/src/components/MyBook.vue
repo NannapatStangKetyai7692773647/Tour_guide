@@ -200,7 +200,8 @@ a {
   background:#fee8fd;
 }
 .btn-99{
-  background:#e2e2e2;
+  background:#9A9A9A;
+  color: #fff;
   padding:10px;
   border-radius:7px;
 }

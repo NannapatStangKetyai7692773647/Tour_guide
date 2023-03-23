@@ -40,11 +40,11 @@ export default {
         input: 'checkbox',
         inputValue: 0,
         inputPlaceholder:
-          'เช็คถูกเพื่อยืนความถูกต้องของข้อมูล',
+          'ยืนยืนความถูกต้องของข้อมูล',
         confirmButtonText:
           'ยืนยัน <i class="fa fa-arrow-right"></i>',
         inputValidator: (result) => {
-          return !result && 'กรุณาเช็คถูกหากข้อมูลของท่านถูกต้อง'
+          return !result && 'กรุณายืนยันข้อมุล'
         }
       })
 

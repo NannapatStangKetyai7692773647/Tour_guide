@@ -1,12 +1,31 @@
-<script setup>
-</script>
+<script setup></script>
 
 <script>
 export default {
   name: "logout",
   methods: {
     logout() {
-      this.$router.push("/");
+      this.$swal({
+        title: "คุณต้องการออกจากระบบหรือไม่",
+        showDenyButton: true,
+        showCancelButton: false,
+        confirmButtonText: "ออกจากระบบ",
+        denyButtonText: "ยกเลิก",
+      }).then((result) => {
+        /* Read more about isConfirmed, isDenied below */
+        if (result.isConfirmed) {
+          this.$swal({
+            position: "center",
+            icon: "success",
+            title: "ออกจากระบบแล้ว",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+          this.$router.push("/");
+        } else if (result.isDenied) {
+          this.$swal("คุณยังอยู่ในระบบ", "", "info");
+        }
+      });
     },
   },
 };
@@ -33,13 +52,14 @@ export default {
         >
         <router-link
           :to="{ name: 'Profile', params: { user: this.$route.params.user } }"
-          > ข้อมูลส่วนตัว</router-link
+        >
+          ข้อมูลส่วนตัว</router-link
         >
         <router-link
           :to="{ name: 'MyBook', params: { user: this.$route.params.user } }"
           >การจองของฉัน</router-link
         >
-        <a v-on:click="logout" href="#"
+        <a @click="logout" href="#"
           ><i class="fas fa-sign-out-alt"></i>Logout</a
         >
       </div>

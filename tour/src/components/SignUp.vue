@@ -21,7 +21,7 @@ export default {
     };
   },
   methods: {
-    saveUser() {
+    async saveUser() {
       var data = {
         fname: this.user.fname,
         lname: this.user.lname,
@@ -31,28 +31,37 @@ export default {
         role: this.user.role,
       };
 
-      if (data.fname == "" || data.lname == "" || data.phone == "" || data.email == "" || data.pwd == "" || data.role == "") {
+      if (data.fname == "" || data.lname == ""||  data.phone == ""  ||data.email == "" || data.pwd == "" || data.role == "") {
         return false
       }
 
-      UserDataService.create(data)
-        .then((response) => {
-          this.user.email = response.data.email;
-          this.submitted = true;
-          this.$swal({
-            position: 'center',
-            icon: 'success',
-            title: 'คุณลงทะเบียนสำเร็จ',
-            showConfirmButton: false,
-            timer: 1500
+      const { value: accept } = await this.$swal({
+        title: 'ยืนยันการลงทะเบียน',
+        input: 'checkbox',
+        inputValue: 0,
+        inputPlaceholder:
+          'เช็คถูกเพื่อยืนความถูกต้องของข้อมูล',
+        confirmButtonText:
+          'ยืนยัน <i class="fa fa-arrow-right"></i>',
+        inputValidator: (result) => {
+          return !result && 'กรุณาเช็คถูกหากข้อมูลของท่านถูกต้อง'
+        }
+      })
+
+      if (accept) {
+        this.$swal('ลงทะเบียนสำเร็จแล้ว !')
+        UserDataService.create(data)
+          .then((response) => {
+            this.user.email = response.data.email;
+            this.submitted = true;
+            setTimeout(() => {
+              router.push('/')
+            }, 600);
           })
-          setTimeout(() => {
-            router.push('/')
-          }, 1600);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+          .catch((e) => {
+            console.log(e);
+          });
+      }
     },
 
     newUser() {

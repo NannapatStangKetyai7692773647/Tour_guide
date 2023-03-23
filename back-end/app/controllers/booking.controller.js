@@ -10,6 +10,7 @@ exports.create = (req, res) => {
   const book = new Tour({
     location: req.body.location,
     name_tour: req.body.name_tour,
+    img : req.body.img,
     sub_name_tour: req.body.sub_name_tour,
     period: req.body.period,
     name_user: req.body.name_user,

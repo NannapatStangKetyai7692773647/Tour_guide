@@ -129,7 +129,7 @@ export default {
                       <h4 class="card-title">{{ tour.day }}</h4>
                       <p class="quantity">ราคาเริ่มต้น(บาท)</p>
                       <h6 class="card-title">{{ formatPrice(tour.price) }}</h6>
-                      <p class="quantity">สถานที่</p>
+                      <p class="quantity">รายละเอียด</p>
                       <h6 class="card-title">{{ tour.sub_name }}</h6>
                     </div>
                     <div class="card-footer">
@@ -137,7 +137,7 @@ export default {
                         <div class="col-6 px-1 py-0">
                           <router-link :to="{ name: 'Doc', params: { id: tour.id } }" class="btn btn-light w-100"
                             type="submit" name="edit">
-                            รายละเอียด <i class="fas fa-edit"></i>
+                            ไฟล์โปรแกรมทัวร์  <i class="fas fa-eye"></i>
                           </router-link>
                         </div>
                         <div class="col-6 px-1 py-0">

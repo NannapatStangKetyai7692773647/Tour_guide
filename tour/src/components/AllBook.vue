@@ -29,6 +29,10 @@ export default {
           console.log(e);
         });
     },
+    formatPrice(value) {
+      let val = (value / 1).toFixed(2).replace(",", ".");
+      return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
     getData() {
       BookDataService.getAll()
         .then((res) => {
@@ -119,34 +123,27 @@ export default {
                       />
                     </div> -->
                     <div class="card-body">
-                      <h6 class="card-title">เลขที่การจอง {{ tour.id }}</h6>
+                      <h6 class="card-title">รหัสจองที่ :  {{ tour.id }}</h6>
                       <h6 class="card-title hlight">{{ tour.name_tour }}</h6>
-                      <h6 class="card-title">ชื่อสถานที่</h6>
-                      <h6 class="card-title">{{ tour.sub_name_tour }}</h6>
-                      <h6 class="card-title nh">ระยะเวลา</h6>
-                      <h6 class="card-title nh">{{ tour.period }}</h6>
-                      <h6 class="card-title">จำนวนคน</h6>
-                      <h6 class="card-title">{{ tour.people }}</h6>
-                      <h6 class="card-title">จองวันที่</h6>
-                      <h6 class="card-title">
-                        {{ tour.day.toString().substr(0, 10) }}
-                      </h6>
-                      <h6 class="card-title">ถึงวันที่</h6>
-                      <h6 class="card-title">
-                        {{ tour.to_date.toString().substr(0, 10) }}
-                      </h6>
-                      <h6 class="card-title">ชื่อคนจอง</h6>
-                      <h6 class="card-title">{{ tour.name_user }}</h6>
-                      <h6 class="card-title">เบอร์โทรศัพท์</h6>
-                      <h6 class="card-title">{{ tour.phone }}</h6>
-                      <h6 class="card-title">Email</h6>
-                      <h6 class="card-title">{{ tour.user }}</h6>
+                      <h6 class="card-title num my-0">ชื่อผู้จอง : {{ tour.name_user }}</h6>
+                      <h6 class="card-title num my-0">เบอร์โทรศัพท์ : {{ tour.phone }}</h6>
+                      <h6 class="card-title num ">Email : {{ tour.user }}</h6>
+                      <!--<h6 class="card-title">ชื่อสถานที่ : </h6> -->
+                      <!----<h6 class="card-title">{{ tour.sub_name_tour }}</h6>-->
+                      <h6 class="card-title  num2 my-0 ">ระยะเวลา : {{ tour.period }}</h6>
+                      <h6 class="card-title  num2 my-0">จำนวนคน {{ tour.people }} ท่าน</h6>
+                      <h6 class="card-title num2 ">ราคารวม : {{formatPrice(tour.price) }} บาท</h6>
+                     
+                      <h6 class="card-title num3 my-0">จองวันที่ : {{ tour.day.toString().substr(0, 10) }}</h6>
+                   
+                      <h6 class="card-title num3 ">ถึงวันที่ : {{ tour.to_date.toString().substr(0, 10) }}</h6>
+                   
                       <div v-if="tour.status === 1">
                         <button
                           @click="AddTour(tour.id)"
                           class="btn btn-outline-success mx-2"
                         >
-                          ยืนยันให้จ่ายเงิน
+                          ยืนยันให้ชำระเงิน
                         </button>
                       </div>
                       <div v-else-if="tour.status === 2">
@@ -205,10 +202,24 @@ input[type="file"] {
 }
 .hlight{
   background:#dbded1;
-  padding:10px;
+  padding:20px;
   border-radius:4px;
 }
-
+.num{
+  background:#f1ff6f;
+  padding:15px;
+  border-radius:4px;
+}
+.num2{
+  background:#e5e5fb;
+  padding:15px;
+  border-radius:4px;
+}
+.num3{
+  background:#d5faff;
+  padding:15px;
+  border-radius:4px;
+}
 .relative{
     position: relative;
 }

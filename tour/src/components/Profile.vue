@@ -80,7 +80,7 @@ export default {
 </script>
 
 <template>
-  <div class="auth-wrapper" :style="{ 'background-image': 'url(/src/assets/img/10909472.jpg)', 'height': '100vh' }">
+  <div class="auth-wrapper" :style="{ 'background-image': 'url(/src/assets/img/10909472.jpg)', 'height': '120vh' }">
     <NavbarUser />
     <div class="auth-inner">
       <form @submit.prevent="saveUser">

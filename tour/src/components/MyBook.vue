@@ -13,11 +13,22 @@ export default {
       search: "",
     };
   }, 
+
   methods: {
     getData() {
       BookDataService.get(this.$route.params.user)
-        .then((res) => {
+      .then((res) => {
           this.tourList = res.data;
+          this.tourList.forEach(async (itm, i) => {
+            if (itm.img !== null && itm.img !== undefined && itm.img !== '') {
+              await SingleFileUpload.getFile(itm.img, 'cover')
+                .then((r) => {
+                  this.tourList[i].img = 'data:image/png;base64,' + r.data
+                  console.log(this.tourList[i].img)
+                })
+            }
+          });
+          this.isBooked()
         })
         .catch((e) => {
           console.log(e);
@@ -70,22 +81,20 @@ export default {
                       />
                     </div> -->
                     <div class="card-body">
+                      
                       <h6 class="card-title hlight my-0">ชื่อทัวร์ :</h6>
                       <h6 class="card-title hlight">{{ tour.name_tour }}</h6>
-                      <h6 class="card-title place my-0">ชื่อสถานที่ : </h6>
+                      <h6 class="card-title place my-0">รายละเอียด : </h6>
                       <h6 class="card-title place ">{{ tour.sub_name_tour }}</h6>
                       <h6 class="card-title ple ">ระยะเวลา : {{ tour.period }}</h6>
                       <h6 class="card-title"></h6>
                       <h6 class="card-title numbh my-0">จำนวนคน : </h6>
                       <h6 class="card-title numbh">{{ tour.people }} ท่าน</h6>
                       <h6 class="card-title bg-price my-0">ราคารวม : </h6>
-                      <h6 class="card-title bg-price">{{ tour.price }} บาท</h6>
-                      <h6 class="card-title Date">จองวันที่ :    {{ tour.day.toString().substr(0, 10) }}</h6>
-                    
+                      <h6 class="card-title bg-price">{{formatPrice(tour.price) }} บาท</h6>
+                      <h6 class="card-title Date">จองวันที่ :    {{ tour.day.toString().substr(0, 10) }}</h6>                   
                       <h6 class="card-title name">ชื่อผู้จอง : {{ tour.name_user }}</h6>
-
-                      <h6 class="card-title Tel">เบอร์ติดต่อ : {{ tour.phone }}</h6>
-                      
+                      <h6 class="card-title Tel">เบอร์ติดต่อ : {{ tour.phone }}</h6>  
                       <h6 class="card-title mail">Email : {{ tour.user }}</h6>
                       
                       <div v-if="tour.status === 1">
@@ -110,8 +119,8 @@ export default {
                         </router-link>
                         <p style="color: red">
                           กรุณาชำระภายในวันที่ {{ slashDay(tour.create_at) }} <br />
-                          หากต้องการยกเลิกติดต่อที่ e-mail:
-                          KindSoGroupTravel@gmail.com <br />ก่อนวันออกเดินทาง 7
+                          หากต้องการยกเลิกติดต่อที่ E-mail:
+                          kindSogrouptravel@gmail.com <br />ก่อนวันออกเดินทาง 7
                           วัน
                         </p>
                       </div>
@@ -134,7 +143,7 @@ export default {
                           type="submit"
                           name="edit"
                         >
-                        ใบเสร็จรับเงินและรายละเอียด
+                        ชำระเงินสำเร็จ กรุณาดาวน์โหลดไฟล์โปรแกรมทัวร์
                         </router-link>
                       </div>
                     </div>
@@ -158,7 +167,7 @@ p {
   font-family: "prompt", sans-serif;
 }
 a {
-  color: rgb(227, 23, 23);
+  color: rgb(255, 241, 52);
   font-weight: 800;
   font-family: "prompt", sans-serif;
 }

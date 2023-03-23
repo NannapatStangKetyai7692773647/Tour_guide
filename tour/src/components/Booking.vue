@@ -15,6 +15,7 @@ export default {
       e_day: new Date(),
       tourList: {
         location: this.$route.params.id,
+        img : "",
         name_tour: "",
         sub_name_tour: "",
         period: "",
@@ -113,7 +114,7 @@ export default {
 };
 </script>
 <template>
-  <div :style="{'background-image':'url(/src/assets/img/10909472.jpg)'}">
+  <div :style="{'background-image':'url(/src/assets/img/10909472.jpg)','height': '120vh'}">
     <NavbarUser />
     <div>
       <div class="content">
@@ -159,6 +160,12 @@ export default {
                       name="name"
                       id="name"
                       v-model="tourList.location"
+                    />
+                    <input
+                      type="hidden"
+                      name="nameUser"
+                      id="nameUser"
+                      v-model="tourList.img"
                     />
                     <input
                       type="hidden"

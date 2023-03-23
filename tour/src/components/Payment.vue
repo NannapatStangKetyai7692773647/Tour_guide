@@ -64,13 +64,13 @@ export default {
 };
 </script>
 <template>
-  <div :style="{ 'background-image': 'url(/src/assets/img/10909472.jpg)' }">
+  <div :style="{ 'background-image': 'url(/src/assets/img/10909472.jpg)','height': '120vh' }">
     <NavbarUser />
     <div>
       <div class="content">
         <div class="container">
           <div class="tools-cart">
-            <h2 class="pt-2">จองทัวร์</h2>
+            <h2 class="pt-2">ชำระเงิน</h2>
             <form
               @submit.prevent="AddTour"
               class="cart-items"
@@ -95,7 +95,7 @@ export default {
                   </div>
                   <div class="col-sm col-lg-6 text-start">
                     
-                    <h5 class="pt-2 my-4 b">อัพโหลด สลิปจ่ายเงิน</h5>
+                    <h5 class="pt-2 my-4 b">แนบหลักฐานการชำระเงิน</h5>
                     <input
                       @change="file($event)"
                       ref="file"

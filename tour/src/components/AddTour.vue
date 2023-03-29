@@ -114,7 +114,8 @@ export default {
                       placeholder="Ex. 3 วัน 2 คืน"
                       required
                     />
-                    <h5 class="pt-2 my-4">สถานที่ท่องเที่ยว</h5>
+                    <h5 class="pt-2 my-4">รายละเอียด
+                    </h5>
                     <input
                       v-model="tourList.sub_name"
                       type="text"

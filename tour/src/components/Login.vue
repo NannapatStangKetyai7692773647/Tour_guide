@@ -29,7 +29,7 @@ export default {
             icon: 'success',
             title: 'เข้าสู่ระบบแล้ว',
             showConfirmButton: false,
-            timer: 1500
+            timer: 2000
           })
           this.user.role = response.data.role;
           this.loggedin = true;

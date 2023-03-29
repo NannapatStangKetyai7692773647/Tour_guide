@@ -31,9 +31,10 @@ export default {
         doc: "",
         price: this.$route.params.price,
       },
-      
+      booked: true,
       
       startDay: new Date(),
+     
     };
   },
   components: {
@@ -54,7 +55,6 @@ export default {
       alert('Yesss');
     },
     AddTour() {  
-
       var data = {
         location: this.tourList.location,
         name_tour: this.tourList.name_tour,
@@ -82,6 +82,12 @@ export default {
         .catch((e) => {
           console.log(e);
         });
+
+    },
+    Homebook(role) {
+       (role === "user") 
+        this.$router.push({ name: "Home2" });
+      
     },
     img() {
       const file = this.$refs.img.files[0].name;
@@ -120,6 +126,7 @@ export default {
       <div class="content">
         <div class="container">
           <div class="tools-cart">
+           
             <h2 class="pt-2">จองทัวร์</h2> 
             <form
               @submit.prevent="AddTour"
@@ -213,10 +220,12 @@ export default {
                   <div class="col-sm"></div>
                 </div>
               </div>
+              
               <button type="submit" class="btn btn-info mx-2" name="add">
                 จองทัวร์
               </button>
             </form>
+            
           </div>
         </div>
       </div>

@@ -131,7 +131,7 @@ export default {
         <div class="container">
           <!-- <div v-if="!this.tourList.length"></div> -->
           <form class="search" v-on:submit.prevent="Search">
-            <input type="search" placeholder="ค้นหา.." name="search" v-model="search" />
+            <input type="search" placeholder="ค้นหา ภาค จังหวัด สถานที่ งบประมาณ ได้ที่นี่" name="search" v-model="search" />
             <button type="submit"><i class="fas fa-search"></i></button>
           </form>
           <div class="row text-center py-5">

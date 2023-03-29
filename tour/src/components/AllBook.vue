@@ -100,7 +100,7 @@ export default {
 };
 </script>
 <template>
-  <div :style="{'background-image':'url(./src/assets/img/10909472.jpg)'}">
+  <div :style="{'background-image':'url(./src/assets/img/10909472.jpg)','height':'100%', 'width':'100%' }">
     <Navbar />
     <div>
       <div class="content">

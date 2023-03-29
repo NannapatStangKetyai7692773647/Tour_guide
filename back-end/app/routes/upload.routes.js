@@ -41,8 +41,10 @@ module.exports = app => {
     const  path = __dirname+`/../../uploads/${req.params.folder}/${req.params.filename}` 
     try{
       fs.readFile(path , function (err,data){
-        res.contentType("application/pdf");  
-        res.send(data.toString('base64'));
+        res.contentType("application/pdf");
+        if(data!==undefined&&data!==null){
+          res.send(data.toString('base64'));
+        }
     }); 
     } catch(e){
       console.log(e)

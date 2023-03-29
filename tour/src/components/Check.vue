@@ -156,7 +156,7 @@ export default {
                         v-model="status"
                       />
                       <h6 class="pt-2 mt-4">ชื่อไกด์</h6> 
-                      <select v-model="guide" @change="setMobile()" class="form-control" >
+                      <select v-model="guide" @change="setMobile()" class="form-control" required oninvalid="this.setCustomValidity('กรุณาเลือกชื่อไกด์')">
                         <option disabled value="">Please select one</option>
                         <option v-for="(gui,i) in guides" :key="i" :value="gui.id">{{gui.fname}} {{gui.sname}}</option> 
                       </select>

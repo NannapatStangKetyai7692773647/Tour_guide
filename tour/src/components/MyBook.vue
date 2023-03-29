@@ -92,7 +92,7 @@ export default {
                       <h6 class="card-title name">ชื่อผู้จอง : {{ tour.name_user }}</h6>
                       <h6 class="card-title Tel">เบอร์ติดต่อ : {{ tour.phone }}</h6>
                       <h6 class="card-title mail">Email : {{ tour.user }}</h6>
-                      <h6 class="card-title mail">ชื่อไกด์ : {{ tour.guide }}</h6>
+                      <h6 :style="{display: tour.guide.length > 0 ? '' : 'none' }" class="card-title guide ">ชื่อไกด์ : {{ tour.guide }}</h6>
 
                       <div v-if="tour.status === 1">
                         <div class="btn-99 my-3">
@@ -197,7 +197,10 @@ a {
   background: rgb(255, 255, 255);
 }
 
-
+.guide {
+  padding: 7px;
+  background: rgb(254, 255, 170);
+}
 
 .ple {
   padding: 7px;

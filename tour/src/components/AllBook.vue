@@ -137,7 +137,7 @@ export default {
                       <h6 class="card-title num3 my-0">จองวันที่ : {{ tour.day.toString().substr(0, 10) }}</h6>
                    
                       <h6 class="card-title num3 ">ถึงวันที่ : {{ tour.to_date.toString().substr(0, 10) }}</h6>
-                      <h6 class="card-title num3 ">ชื่อไกด์ : {{ tour.guide }}</h6>
+                      <h6 class="card-title num4 ">ชื่อไกด์ : {{ tour.guide }}</h6>
                    
                       <div v-if="tour.status === 1">
                         <button
@@ -218,6 +218,11 @@ input[type="file"] {
 }
 .num3{
   background:#d5faff;
+  padding:15px;
+  border-radius:4px;
+}
+.num4{
+  background:#a5b3ff;
   padding:15px;
   border-radius:4px;
 }

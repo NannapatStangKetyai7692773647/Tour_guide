@@ -89,6 +89,7 @@ export default {
                                 <li>ธนาคาร : ไทยพาณิชย์</li>
                                 <li>เลขที่บัญชี :<span class="text-xl"> 769-2-77364-7</span></li>
                                 <li>ชื่อบัญชี : นันท์นภัส เขตใหญ่</li>
+      
                             </ul>
                           </div>
                      </div> 
@@ -117,7 +118,6 @@ export default {
                   <div class="col-sm"></div>
                 </div>
               </div>
-             
             </form>
           </div>
         </div>

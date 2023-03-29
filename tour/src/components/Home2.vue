@@ -73,7 +73,6 @@ export default {
       let val = (value / 1).toFixed(2).replace(",", ".");
       return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     },
-    
     isBooked() {
       BookDataService.get(this.$route.params.user)
         .then((res) => {
@@ -113,7 +112,8 @@ export default {
         <div class="container-fluid">
           <!-- <div v-if="!this.tourList.length"></div> -->
           <form class="search" v-on:submit.prevent="Search">
-            <input type="search" placeholder="ค้นหา ภาค จังหวัด สถานที่ งบประมาณ ได้ที่นี่" name="search" v-model="search" />
+            <input type="search" placeholder="ค้นหา ภาค จังหวัด สถานที่ งบประมาณ ได้ที่นี่" name="search"
+              v-model="search" />
             <button type="submit"><i class="fas fa-search"></i></button>
           </form>
           <div class="row text-center py-5">
@@ -138,7 +138,7 @@ export default {
                         <div class="col-6 px-1 py-0">
                           <router-link :to="{ name: 'Doc', params: { id: tour.id } }" class="btn btn-light w-100"
                             type="submit" name="edit">
-                            ไฟล์โปรแกรมทัวร์  <i class="fas fa-eye"></i>
+                            ไฟล์โปรแกรมทัวร์ <i class="fas fa-eye"></i>
                           </router-link>
                         </div>
                         <div class="col-6 px-1 py-0">

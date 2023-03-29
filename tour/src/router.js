@@ -15,9 +15,11 @@ import Guide from "./components/Guide.vue";
 import Profile from "./components/Profile.vue";
 import Payment from "./components/Payment.vue";
 import admGuide from "./components/admGuide.vue";
+import Showpage from "./components/Showpage.vue";
 
 const routes = [
-  { path: "/", name: "Login", component: Login },
+  { path: "/", name: "SohwAll", component: Showpage },
+  { path: "/login", name: "Login", component: Login },
   { path: "/signUp", name: "SignUp", component: SignUp },
   { path: "/homeAdmin2", name: "HomeAdmin2", component: HomeAdmin2 },
   { path: "/home2/:user", name: "Home2", component: Home2 },
@@ -29,13 +31,11 @@ const routes = [
   { path: "/booking/:id/:user/:price", name: "Booking", component: Booking },
   { path: "/allBook", name: "AllBook", component: AllBook },
   { path: "/check/:id", name: "Check", component: Check },
-  { path: "/myBook/:user", name: "MyBook", component: MyBook  },
-  { path: "/guide/:id/:user", name: "Guide", component: Guide  },
-  { path: "/payment/:id/:user/:people", name: "Payment", component: Payment  },
+  { path: "/myBook/:user", name: "MyBook", component: MyBook },
+  { path: "/guide/:id/:user", name: "Guide", component: Guide },
+  { path: "/payment/:id/:user/:people", name: "Payment", component: Payment },
 
-  
   { path: "/admguide", name: "admguide", component: admGuide },
-  
 ];
 
 const router = createRouter({
